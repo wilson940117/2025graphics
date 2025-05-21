@@ -1,4 +1,6 @@
-//week11-2-postman-alpha-interpolation
+//week11-1-postman-saveString-loadString
+
+//week10-6-postman-many-angle-ID-saveStrings-loadStrings
 //頭 身體 手臂 手轴 腳
 PImage postman,head,body,hand1,uparm1,hand2,uparm2;
 float [] angle = new float[20];//準備20個關節的變數
@@ -39,12 +41,6 @@ void keyPressed(){
       for(int i=0;i<20;i++) angle[i] = now[i];
       R = (R+1) % lines.size();
     }
-  }
-  if(key=='p'){//按了r之後 想要內插中間的結果
-    float [] oldAngle = float(split(lines.get(R),' '));
-    float [] newAngle = float(split(lines.get((R+1)%lines.size()),' '));
-    float alpha = (frameCount%30)/30.0;
-    for(int i=0;i<20;i++) angle[i] = oldAngle[i]*(1-alpha)+newAngle[i]*alpha;
   }
 }
 int R = 0;
